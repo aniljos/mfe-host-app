@@ -2,7 +2,13 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import React, { Suspense } from "react";
-// import Message from './components/Message';
+import Message from './components/Message';
+import Counter from './components/Counter';
+import Login from './components/Login';
+import ListProducts from './components/ListProducts';
+import EditProduct from './components/EditProduct';
+import ProtectedRoute from './components/ProtectedRoute';
+
 function App() {
 
     return (
@@ -29,10 +35,11 @@ function App() {
             <main>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Routes>
-                      <Route path="/" element={<h4>Home</h4>} />
-                      <Route path="/counter" element={<h4>Counter</h4>} />
-                      <Route path="/login" element={<h4>Login</h4>} />
-                      <Route path="/products" element={<h4>Products</h4>} />
+                      <Route path="/" element={<Message text='MFE Application'/>} />
+                      <Route path="/counter" element={<Counter initialValue={4}/>} />
+                      <Route path="/login" element={<Login/>} />
+                      <Route path="/products" element={<ProtectedRoute> <ListProducts/> </ProtectedRoute>} />
+                      <Route path="/products/:id" element={<ProtectedRoute><EditProduct/></ProtectedRoute>} />
                       
                     </Routes>
                 </Suspense>
