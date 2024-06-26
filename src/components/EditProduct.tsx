@@ -19,7 +19,7 @@ function EditProduct(){
     async function fetchProduct(){
 
         try {
-            const response = await axios.get<Product>(`http://localhost:9000/products/${params.id}`);
+            const response = await axios.get<Product>(`http://localhost:9001/products/${params.id}`);
             setProduct(response.data);
 
         } catch (error) {

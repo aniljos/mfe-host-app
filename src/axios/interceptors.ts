@@ -4,9 +4,9 @@ import {store} from '../redux/store';
 
 axios.interceptors.request.use((config: InternalAxiosRequestConfig<any>) => {
 
-    const loginRequestUrl = "http://localhost:9000/login";
+    const loginRequestUrl = "http://localhost:9001/login";
 
-    if(config.url !== loginRequestUrl && config.url?.startsWith("http://localhost:9000/")){
+    if(config.url !== loginRequestUrl && config.url?.startsWith("http://localhost:9001/")){
         const reduxState = store.getState();
         config.headers.Authorization = `Bearer ${reduxState.auth.accessToken}`;
     }

@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
@@ -37,8 +38,19 @@ module.exports = {
                   loader: "postcss-loader",
                 }],
             },
+            {
+                enforce: 'pre',
+                test: /\.tsx$/,
+                loader: 'source-map-loader',
+                exclude: /node_modules/,
+              },
         ],
     },
+    output: {
+        filename: 'bundle.js',
+        path: path.join(__dirname, 'dist'),
+      },
+    devtool: 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
@@ -48,13 +60,14 @@ module.exports = {
         //     filename:
         //       'remoteEntry.js',
         //     remotes:{
-        //         productapp: 'productapp@http://localhost:3200/remoteEntry.js'
+        //         customerRemote: 'customerModule@http://localhost:3200/remoteEntry.js'
         //     },
         //     shared: {
         //       react: { singleton: true, eager: true },
         //       'react-dom': { singleton: true, eager: true },
         //       'react-redux': { singleton: true, eager: true },
         //       redux: { singleton: true, eager: true },
+        //       
         //     },
         //   })
     ],

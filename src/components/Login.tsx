@@ -30,7 +30,7 @@ function Login(){
         //const uname =  userNameRef.current?.value
         if(userName && password){
             //API call
-            const url = "http://localhost:9000/login";
+            const url = "http://localhost:9001/login";
             // axios
             //     .post(url, {name: userName, password})
             //     .then((response) => {
@@ -79,7 +79,7 @@ function Login(){
     return (
         <div>
             <h4>Login</h4>
-            {message ? <div style={{border: "1px solid red"}}>{message}</div> : null}
+            {message ? <div className='alert alert-danger'>{message}</div> : null}
 
             <form onSubmit={handleLogin}>
                 <div className='form-group'>

@@ -9,7 +9,7 @@ import { AuthState } from "../redux/authReducer";
 
 
 //const baseUrl = "http://localhost:9000/products";
-const baseUrl = "http://localhost:9000/secure_products";
+const baseUrl = "http://localhost:9001/secure_products";
 
 
 
@@ -20,7 +20,7 @@ function ListProducts(){
     const navigate = useNavigate();
     //subscribe to redux;
     const auth = useSelector((state: any) => state.auth) as AuthState;
-
+    //useTitle("List Products");
 
     useEffect(() => {
 

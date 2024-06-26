@@ -16,7 +16,7 @@ const initialState: AuthState = {
 //reducer
 export const authReducer = (currentState: AuthState=initialState, action: any) => {
 
-    debugger;
+    //debugger;
     //action to login {type: "login", payload: {authState}}
     if(action.type === "login"){
         return {

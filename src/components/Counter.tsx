@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 
+
+
 type CounterProps = {
     initialValue?: number
 }
@@ -38,7 +40,8 @@ const Counter = (props: CounterProps)=> {
 
     return (
         <div>
-            <h4>Count: {counter}</h4>
+            <h4>Counter</h4>
+            <h5>Count: {counter}</h5>
             <div>
                 <button onClick={inc}>Increment</button>&nbsp;
                 <button onClick={decr}>Decrement</button>
